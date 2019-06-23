@@ -1,38 +1,50 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  Platform,
+  Image
+} from 'react-native';
 import WebView from 'react-native-webview';
-import AssetUtils from 'expo-asset-utils';
 
-const requiredAsset = require('./dist/index.html');
+
+const requiredAsset = require('./assets/dist/index.html');
 
 export default class MyWebView extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
+      assetAndroid: null,
       asset: undefined
     };
   }
 
   componentDidMount = async () => {
     try {
-      const asset = await AssetUtils.resolveAsync(requiredAsset);
-      console.log({ asset });
-      debugger;
-      this.setState({ asset });
+      let asset = require('./dist/index.html');
+      this.setState({ asset }, () => {
+        console.log({ asset });
+      });
+
+   
     } catch (error) {
       console.log({ error });
     }
   };
 
   render() {
-    return this.state.asset ? (
+    return this.state.asset  ? (
       <WebView
-        source={{ uri: this.state.asset.uri }}
+        source={this.state.asset }
         startInLoadingState={true}
-        mixedContentMode={'always'}
         javaScriptEnabled={true}
         domStorageEnabled={true}
         useWebKit={true}
+        mixedContentMode="always"
+        originWhitelist={['*']}
       />
     ) : (
       <ActivityIndicator />

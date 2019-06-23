@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,YACI,UAAW,CACX,eAAgB,CAChB,eACJ","file":"build.b3b62107.css","sourceRoot":"..\\build","sourcesContent":["#myelement1{\r\n    color: blue;\r\n    font-weight: 600;\r\n    font-size: 1.5em;\r\n}"]}

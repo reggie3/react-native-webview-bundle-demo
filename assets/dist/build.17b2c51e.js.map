@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["target","document","getElementById","text"],"mappings":";AAAA,IAAIA,EAASC,SAASC,eAAe,cACrCF,EAAOG,KAAM","file":"build.17b2c51e.js","sourceRoot":"..\\build","sourcesContent":["let target = document.getElementById(\"myelement1\") \r\ntarget.text= \"Hello from javascript!\";"]}
