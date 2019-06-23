@@ -17,6 +17,7 @@ export default class MyWebView extends Component {
     try {
       const asset = await AssetUtils.resolveAsync(requiredAsset);
       console.log({ asset });
+      debugger;
       this.setState({ asset });
     } catch (error) {
       console.log({ error });
@@ -25,7 +26,14 @@ export default class MyWebView extends Component {
 
   render() {
     return this.state.asset ? (
-      <WebView source={{ uri: this.state.asset }} />
+      <WebView
+        source={{ uri: this.state.asset.uri }}
+        startInLoadingState={true}
+        mixedContentMode={'always'}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        useWebKit={true}
+      />
     ) : (
       <ActivityIndicator />
     );

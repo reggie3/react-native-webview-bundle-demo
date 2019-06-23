@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Payment Component Test</Text>
+        <Text style={styles.headerText}>Webview Bundling Test</Text>
       </View>
       <View style={{ backgroundColor: 'blue', flex:1, width: '100%'}}>
         <MyWebView />
